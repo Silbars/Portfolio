@@ -1,0 +1,24 @@
+.content {
+  height: 500px;
+  width: 800px;
+  border: 2px solid black;
+  background-color: lightblue;
+  padding: 20px;
+}
+nav.navigation {
+  height: 30px;
+  width: 300px;
+  background-color: red;
+  border: 2px black solid;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+a {
+  color: white;
+}
+a:hover {
+  color: black;
+}
