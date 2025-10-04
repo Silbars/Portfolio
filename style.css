@@ -1,1 +1,611 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(180deg, #1d1f2f 0%, #0e111a 100%);
+  color: #d0d0d0;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #ffffffcc 99%, #0000 100%),
+    radial-gradient(1.5px 1.5px at 80% 70%, #cfe9ffcc 99%, #0000 100%),
+    radial-gradient(1.2px 1.2px at 50% 50%, #fff8 99%, #0000 100%),
+    radial-gradient(1px 1px at 10% 80%, #e0f7ffb3 99%, #0000 100%),
+    radial-gradient(1px 1px at 70% 15%, #ffffffb3 99%, #0000 100%),
+    radial-gradient(1.4px 1.4px at 35% 65%, #d8eeffcc 99%, #0000 100%),
+    radial-gradient(1.2px 1.2px at 90% 40%, #ffffffa6 99%, #0000 100%);
+  background-size: 300px 300px, 340px 340px, 380px 380px,
+                   420px 420px, 460px 460px, 500px 500px, 540px 540px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  opacity: 0.9;
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.mobile-logo {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(15, 15, 30, 0.92);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.mobile-logo-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobile-logo img {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 8px rgba(154, 225, 255, 0.4));
+}
+
+.mobile-logo span {
+  font-family: 'Press Start 2P', cursive;
+  color: #9ae1ff;
+  font-size: 0.6rem;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(15, 15, 30, 0.92);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo img {
+  width: 32px;
+  height: 32px;
+}
+
+.nav-logo span {
+  font-family: 'Press Start 2P', cursive;
+  color: #9ae1ff;
+  font-size: 0.7rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255,255,255,0.4);
+}
+
+@media (max-width: 768px) {
+  .mobile-logo {
+    display: block;
+  }
+
+  nav {
+    top: auto;
+    bottom: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: none;
+    padding: 0.8rem 0.5rem;
+  }
+
+  nav ul {
+    width: 100%;
+    justify-content: space-around;
+    gap: 0;
+  }
+
+  nav a {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+  }
+
+  nav a::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #9ae1ff;
+    border-radius: 50%;
+    margin-bottom: 0.3rem;
+    opacity: 0.6;
+  }
+
+  nav a:hover::before {
+    opacity: 1;
+    box-shadow: 0 0 6px rgba(154, 225, 255, 0.6);
+  }
+
+  body {
+    padding-bottom: 80px;
+  }
+}
+
+header {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 2rem;
+  position: relative;
+}
+
+header h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #f4f4f4; 
+}
+
+header p {
+  font-size: 1rem;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #b0b0b0;
+}
+
+@media (max-width: 768px) {
+  header {
+    margin-top: 60px;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+  }
+  
+  header p {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+}
+
+section {
+  min-height: 100vh;
+  padding: 5rem 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 5%;
+    min-height: auto;
+  }
+}
+
+section h2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #c4c4c4;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  section h2 {
+    font-size: 1rem;
+  }
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-name {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem;
+  color: #9ae1ff;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.about-text {
+  text-align: center;
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.education-info {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.education-info h3 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.9rem;
+  color: #9ae1ff;
+  margin-bottom: 1rem;
+}
+
+.education-info p {
+  color: #bbb;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(154,225,255,0.2);
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  color: #9ae1ff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.social-links a:hover {
+  background: rgba(154,225,255,0.1);
+  border-color: #9ae1ff;
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  transition: fill 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .profile-name {
+    font-size: 0.9rem;
+  }
+  
+  .about-text {
+    font-size: 0.9rem;
+  }
+  
+  .education-info {
+    padding: 1.5rem;
+  }
+  
+  .education-info h3 {
+    font-size: 0.7rem;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  .social-links a {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.skill-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 200px;
+  justify-content: center;
+}
+
+.skill-card:hover {
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-8px);
+  border-color: rgba(154,225,255,0.3);
+}
+
+.skill-card svg {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+  color:#9ae1ff;
+  transition: 0.3s ease;
+}
+
+.skill-card h3 {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+@media (max-width: 768px) {
+  .skill-card {
+    padding: 2rem 1rem;
+    min-height: 150px;
+  }
+  
+  .skill-card svg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .skill-card h3 {
+    font-size: 0.8rem;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.project-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-8px);
+}
+
+.project-card h3 {
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #bbb;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    padding: 1.5rem;
+  }
+}
+
+.contact-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.contact-form {
+  background: rgba(255,255,255,0.045);
+  border: 1.5px solid rgba(154,225,255,0.14);
+  border-radius: 14px;
+  padding: 2.5rem;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+}
+
+.contact-form h3 {
+  font-family: 'Press Start 2P', cursive;
+  color: #9ae1ff;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: #9ae1ff;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: rgba(15, 25, 45, 0.6);
+  border: 1px solid rgba(154,225,255,0.3);
+  border-radius: 8px;
+  padding: 0.8rem;
+  color: #fff;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #9ae1ff;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #9ae1ff 0%, #7bb8e8 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  color: #1a1a2e;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #b8e8ff 0%, #9ae1ff 100%);
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .contact-form h3 {
+    font-size: 0.9rem;
+  }
+  
+  .form-group label {
+    font-size: 0.8rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+  font-size: 0.86rem;
+  color: #83a2b3;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  background: rgba(15, 15, 30, 0.92);
+  position: relative;
+}
+
+.footer-social {
+  margin-top: 0.7rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social svg {
+  width: 22px;
+  height: 22px;
+  color:#9ae1ff;
+  fill: #8bd1f7;
+  transition: fill 0.2s;
+}
