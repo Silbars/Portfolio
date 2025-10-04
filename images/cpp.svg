@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 306 306" width="306" height="306">
+  <defs>
+    <!-- Mask to create transparent cutouts -->
+    <mask id="logo-mask">
+      <rect width="306" height="306" fill="white"/>
+      <!-- C shape cutout -->
+      <path fill="black" d="M153 210.6c-31.3 0-55.3-25.1-55.3-57.9 0-32.7 24-57.9 55.3-57.9 18.4 0 34.7 9 44.7 23l28.3-16.4c-15.6-22-41.3-36.6-73-36.6-48.6 0-86.3 39.3-86.3 88 0 48.6 37.7 88 86.3 88 31.7 0 57.4-14.6 73-36.6l-28.3-16.4c-10 14-26.3 23-44.7 23z"/>
+      <!-- Plus signs cutouts -->
+      <rect x="209" y="136.5" width="20" height="32" fill="black"/>
+      <rect x="203" y="142.5" width="32" height="20" fill="black"/>
+      <rect x="251" y="136.5" width="20" height="32" fill="black"/>
+      <rect x="245" y="142.5" width="32" height="20" fill="black"/>
+    </mask>
+  </defs>
+  
+  <!-- Square background with mask applied -->
+  <rect width="306" height="306" fill="#9AE1FF" mask="url(#logo-mask)"/>
+</svg>
